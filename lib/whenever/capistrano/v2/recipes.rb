@@ -21,7 +21,9 @@ Capistrano::Configuration.instance(:must_exist).load do
         :path    => fetch(:latest_release)
       }
       
+      logger = Capistrano::Logger.new
       logger.debug "In update_crontab"
+      puts "putsing in update_crontab"
       
       if whenever_servers.any?
         args = whenever_prepare_for_rollback(args) if task_call_frames[0].task.fully_qualified_name == 'deploy:rollback'
