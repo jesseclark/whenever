@@ -43,7 +43,7 @@ module Whenever
             roles_arg = roles.empty? ? "" : " --roles #{roles.join(',')}"
 
             command = "cd #{args[:path]} && #{args[:command]} #{args[:flags]}#{roles_arg}"
-            puts "Running whenever command: #{command}"
+            logger.debug "Running whenever command: #{command}"
             run command, whenever_options.merge(:hosts => server)
           end
         end
